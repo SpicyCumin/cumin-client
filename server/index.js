@@ -20,8 +20,8 @@ const PORT = process.env.PORT;
 // -------------------------------------Product Routes-----------------------------
 // Gets a single product
 app.get('/product', (req, res) => {
-  let endpoint = `/products/${req.query.productId}/`;
-  apiRequest('get', endpoint, 'EC2_IPV4:3300')
+  let endpoint = `/products/${req.query.productId}`;
+  apiRequest('get', endpoint, process.env.PRODUCT_SERVER_HOST)
     .then((response) => res.status(200).send(response.data))
     // .then((response) => console.log(response.data))
     .catch((err) => console.log('catch on server side - product info'));
@@ -30,14 +30,14 @@ app.get('/product', (req, res) => {
 // Gets a list of styles from a product
 app.get('/product/styles', (req, res) => {
   const endpoint = `/styles/${req.query.productId}`;
-  apiRequest('get', endpoint, 'EC2_IPV4:3300')
+  apiRequest('get', endpoint, process.env.PRODUCT_SERVER_HOST)
     .then(({ data }) => res.status(200).send(data))
     .catch((err) => console.log('catch on server side - styles'));
 });
 
 app.get('/product/related', (req, res) => {
   const endpoint = `/related/${req.query.productId}`;
-  apiRequest('get', endpoint, 'EC2_IPV4:3300')
+  apiRequest('get', endpoint, process.env.PRODUCT_SERVER_HOST)
     .then(({ data }) => res.status(200).send(data))
     .catch((err) => console.log('catch on server side - related'));
 });

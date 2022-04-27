@@ -1,7 +1,7 @@
 const axios = require('axios');
 require('dotenv').config();
 
-function apiRequest(method, endpoint, baseUrl) {
+function apiRequest(method, endpoint, baseUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/') {
   return axios({
     method: method,
     baseURL: baseUrl,
