@@ -32,14 +32,14 @@ app.get('/product/styles', (req, res) => {
   const endpoint = `/styles/${req.query.productId}`;
   apiRequest('get', endpoint, process.env.PRODUCTS_SERVER_HOST)
     .then(({ data }) => res.status(200).send(data))
-    .catch((err) => console.log('catch on server side - styles'), err);
+    .catch((err) => console.log('catch on server side - styles'));
 });
 
 app.get('/product/related', (req, res) => {
   const endpoint = `/related/${req.query.productId}`;
   apiRequest('get', endpoint, process.env.PRODUCTS_SERVER_HOST)
     .then(({ data }) => res.status(200).send(data))
-    .catch((err) => console.log('catch on server side - related'), err);
+    .catch((err) => console.log('catch on server side - related'));
 });
 
 // ----------------------------------------Q&A Routes-----------------------------
