@@ -1,10 +1,10 @@
 const axios = require('axios');
 require('dotenv').config();
 
-function apiRequest(method, endpoint) {
+function apiRequest(method, endpoint, baseUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/') {
   return axios({
     method: method,
-    baseURL: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/',
+    baseURL: baseUrl,
     url: endpoint,
     headers: {
       'Retry-After': 3600,
